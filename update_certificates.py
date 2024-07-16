@@ -106,7 +106,7 @@ def update_certificates():
                 justify-content: space-between;
             }}
             .badge {{
-                width: calc(50% - 20px);
+                width: calc(47% - 20px);
                 padding: 20px;
                 margin-bottom: 20px;
                 background-color: #f9f9f9;
