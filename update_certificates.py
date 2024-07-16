@@ -120,6 +120,19 @@ def update_certificates():
                 margin: 10px 0;
                 color: #555;
             }}
+            @media (max-width: 768px) {{
+                .badge {{
+                    width: 100%;
+                }}
+            }}
+            @media (max-width: 480px) {{
+                .header h1 {{
+                    font-size: 2em;
+                }}
+                .badge {{
+                    padding: 15px;
+                }}
+            }}
         </style>
     </head>
     <body>
