@@ -106,7 +106,7 @@ def update_certificates():
                 justify-content: space-between;
             }}
             .badge {{
-                width: 45%;
+                width: calc(50% - 20px);
                 padding: 20px;
                 margin-bottom: 20px;
                 background-color: #f9f9f9;
@@ -135,20 +135,23 @@ def update_certificates():
             }}
             @media (max-width: 1024px) {{
                 .badge {{
-                    width: 48%;
-                }}
-            }}
-            @media (max-width: 768px) {{
-                .badge {{
                     width: 100%;
                 }}
             }}
-            @media (max-width: 480px) {{
+            @media (max-width: 768px) {{
                 .header h1 {{
                     font-size: 2em;
                 }}
                 .badge {{
                     padding: 15px;
+                }}
+            }}
+            @media (max-width: 480px) {{
+                .header h1 {{
+                    font-size: 1.5em;
+                }}
+                .badge {{
+                    padding: 10px;
                 }}
             }}
         </style>
