@@ -1,21 +1,28 @@
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 import json
 import os
 
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+
 def update_certificates():
     # Đọc thông tin xác thực từ secret
-    credentials_info = json.loads(os.environ['GOOGLE_SHEETS_CREDENTIALS'])
+    credentials_info = json.loads(os.environ["GOOGLE_SHEETS_CREDENTIALS"])
 
     # Xác định phạm vi truy cập
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    scope = [
+        "https://spreadsheets.google.com/feeds",
+        "https://www.googleapis.com/auth/drive",
+    ]
 
     # Xác thực và khởi tạo client
-    credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_info, scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(
+        credentials_info, scope
+    )
     client = gspread.authorize(credentials)
 
     # Mở Google Sheets bằng URL hoặc tên
-    spreadsheet = client.open('My Certificates')
+    spreadsheet = client.open("My Certificates")
     sheet = spreadsheet.sheet1  # Mở sheet đầu tiên
 
     # Đọc dữ liệu từ sheet
@@ -44,7 +51,7 @@ def update_certificates():
                 min-height: 100vh;
             }}
             .container {{
-                max-width: 900px;
+                max-width: 1200px;
                 margin: auto;
                 padding: 20px;
                 background-color: white;
@@ -118,33 +125,33 @@ def update_certificates():
     <body>
         <div class="container">
             <div class="header">
-                <img src="path_to_your_profile_image.jpg" alt="Profile Image" class="profile-image">
+                <img src="./Avatar.png" alt="Profile Image" class="profile-image">
                 <h1>Mỹ Linh Phùng</h1>
-                <p>Trang này hiển thị các chứng chỉ và kỹ năng mà tôi đã đạt được.</p>
+                <p>This page displays the certificates and skills that I have achieved.</p>
                 <div class="social-icons">
-                    <a href="https://facebook.com/yourprofile" target="_blank">
+                    <a href="https://www.facebook.com/trongnguyen2304" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
                     </a>
-                    <a href="https://github.com/yourprofile" target="_blank">
+                    <a href="https://github.com/nguyenn-04" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
                     </a>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                    <a href="https://www.linkedin.com/in/htnguyen04/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn">
                     </a>
                 </div>
-                <h2>Chứng chỉ</h2>
-                <p>Tổng số lượng chứng chỉ: {len(data)}</p>
+                <h2>Certificates</h2>
+                <p>Total number of certificates: {len(data)}</p>
             </div>
             <div class="badges">
     """
 
     # Thêm thông tin chứng chỉ vào nội dung HTML
     for row in data:
-        certificate_name = row['Certificate Name']
-        date_issued = row['Date Issued']
-        certificate_type = row['Certificate Type']
-        thumbnail_url = row['Thumbnail URL']
-        
+        certificate_name = row["Certificate Name"]
+        date_issued = row["Date Issued"]
+        certificate_type = row["Certificate Type"]
+        thumbnail_url = row["Thumbnail URL"]
+
         html_content += f"""
                     <div class="badge">
                         <a href="{thumbnail_url}" target="_blank">{certificate_name}</a>
@@ -163,10 +170,11 @@ def update_certificates():
     """
 
     # Lưu nội dung HTML vào file với mã hóa utf-8
-    with open("index.html", "w", encoding='utf-8') as file:
+    with open("index.html", "w", encoding="utf-8") as file:
         file.write(html_content)
 
     print("Certificates page created: index.html")
+
 
 if __name__ == "__main__":
     update_certificates()
