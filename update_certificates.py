@@ -1,9 +1,7 @@
-import json
-import os
-
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-
+import json
+import os
 
 def update_certificates():
     # Đọc thông tin xác thực từ secret
@@ -49,20 +47,30 @@ def update_certificates():
                 justify-content: center;
                 align-items: center;
                 min-height: 100vh;
+                animation: fadein 2s;
+            }}
+            @keyframes fadein {{
+                from {{ opacity: 0; }}
+                to {{ opacity: 1; }}
             }}
             .container {{
                 max-width: 1200px;
                 margin: auto;
                 padding: 20px;
                 background-color: white;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
                 border-radius: 8px;
+                border: 1px solid #ddd;
             }}
             .profile-image {{
                 width: 150px;
                 height: 150px;
                 border-radius: 50%;
                 margin-bottom: 20px;
+                transition: transform 0.3s;
+            }}
+            .profile-image:hover {{
+                transform: scale(1.1);
             }}
             .header {{
                 text-align: center;
@@ -83,6 +91,10 @@ def update_certificates():
             .social-icons a {{
                 margin: 0 10px;
                 text-decoration: none;
+                transition: transform 0.3s;
+            }}
+            .social-icons a:hover {{
+                transform: translateY(-5px);
             }}
             .social-icons img {{
                 width: 30px;
@@ -112,13 +124,19 @@ def update_certificates():
                 color: #333;
                 font-weight: bold;
                 font-size: 1.2em;
+                transition: color 0.3s;
             }}
             .badge a:hover {{
-                text-decoration: underline;
+                color: #4285F4;
             }}
             .badge p {{
                 margin: 10px 0;
                 color: #555;
+            }}
+            @media (max-width: 1024px) {{
+                .badge {{
+                    width: 48%;
+                }}
             }}
             @media (max-width: 768px) {{
                 .badge {{
@@ -187,7 +205,6 @@ def update_certificates():
         file.write(html_content)
 
     print("Certificates page created: index.html")
-
 
 if __name__ == "__main__":
     update_certificates()
