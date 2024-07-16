@@ -38,7 +38,7 @@ def update_certificates():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mỹ Linh Phùng - Certificates</title>
+        <title>Ha Trong Nguyen - Certificates</title>
         <style>
             body {{
                 font-family: Arial, sans-serif;
@@ -156,7 +156,7 @@ def update_certificates():
                     <div class="badge">
                         <a href="{thumbnail_url}" target="_blank">{certificate_name}</a>
                         <p>{certificate_type}</p>
-                        <p>Ngày cấp: {date_issued}</p>
+                        <p>Date Issued: {date_issued}</p>
                     </div>
         """
 
