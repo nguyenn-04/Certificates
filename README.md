@@ -2,7 +2,7 @@
 
 This project showcases the portfolio of certificates and skills achieved by me. The data is dynamically fetched from a Google Sheets document and displayed on a GitHub Pages website.
 
-Visit the portfolio at: [Ha Trong Nguyen - Certificates](https://nguyenn-04.github.io/)
+Visit the portfolio at: [Ha Trong Nguyen - Certificates](https://nguyenn-04.github.io/Certificates/)
 
 ## Features
 
