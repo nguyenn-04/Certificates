@@ -1,7 +1,9 @@
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 import json
 import os
+
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials  # type: ignore
+
 
 def update_certificates():
     # Đọc thông tin xác thực từ secret
@@ -208,6 +210,7 @@ def update_certificates():
         file.write(html_content)
 
     print("Certificates page created: index.html")
+
 
 if __name__ == "__main__":
     update_certificates()
